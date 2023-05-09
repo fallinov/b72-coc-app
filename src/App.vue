@@ -1,85 +1,37 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+// Cheat Sheet: https://steve-fallet.notion.site/Vue-3-script-setup-Cheat-Sheet-b12192ceae244ecda65f771579ca02bc
+import {reactive, ref} from 'vue'
+const titre = ref('Clash of Clans')
+const troupes = reactive(['Barbare', 'Archer', 'Géant'])
 </script>
 
+<h1>{{ titre }}</h1>
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+    <ul>
+        <li v-for="troupe in troupes" :key="troupe.id">
+            {{ troupe }}
+        </li>
+    </ul>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<style scoped lang="sass">
+/* https://sass-lang.com/guide */
+$primary: #800080
+$secondary: #fefefe
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+h1
+  color: $primary
+  text-align: center
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
+ul
+  list-style: none
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  li
+    color: $secondary
+    background-color: $primary
+    margin: 1rem
+    padding: 1rem
+    max-width: 200px
 </style>
