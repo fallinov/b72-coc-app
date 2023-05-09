@@ -1,14 +1,17 @@
 <script setup>
 // Cheat Sheet: https://steve-fallet.notion.site/Vue-3-script-setup-Cheat-Sheet-b12192ceae244ecda65f771579ca02bc
 import {reactive, ref} from 'vue'
+
+// Variable réactive primitive avec une valeur simple
 const titre = ref('Clash of Clans')
+// Variable réactive complexe avec plusieurs propriétés
 const troupes = reactive(['Barbare', 'Archer', 'Géant'])
 </script>
 
-<h1>{{ titre }}</h1>
 <template>
+    <h1>{{ titre }}</h1>
     <ul>
-        <li v-for="troupe in troupes" :key="troupe.id">
+        <li v-for="troupe in troupes" :key="troupe">
             {{ troupe }}
         </li>
     </ul>
