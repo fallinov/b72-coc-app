@@ -94,7 +94,9 @@ function formerTroupe(cout) {
 
 <template>
   <page-top-barre :or="totalOr" />
+
   <page-header :titre="titre" :site="site" :description="description" />
+
   <main>
     <ul class="cartes">
       <li v-for="trp in troupes" :key="trp.id">
@@ -106,7 +108,8 @@ function formerTroupe(cout) {
       </li>
     </ul>
   </main>
-  <PageFooter :site="site" />
+
+  <page-footer :site="site" />
 </template>
 
 <style scoped>
