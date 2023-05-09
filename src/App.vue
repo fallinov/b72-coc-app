@@ -1,7 +1,9 @@
 <script setup>
 // Cheat Sheet: https://steve-fallet.notion.site/Vue-3-script-setup-Cheat-Sheet-b12192ceae244ecda65f771579ca02bc
-import { reactive, ref } from 'vue'
-import TopBarre from "@/components/TopBarre.vue";
+import {reactive, ref} from 'vue'
+import TopBarre from "@/components/PageTopBarre.vue";
+import PageHeader from "@/components/PageHeader.vue";
+import PageTopBarre from "@/components/PageTopBarre.vue";
 
 /* Variables réactives */
 const titre = ref('Clash of Clans')
@@ -89,14 +91,8 @@ function formerTroupe(cout) {
 </script>
 
 <template>
-  <top-barre :or="totalOr" />
-  <header>
-    <h1>{{ titre }}</h1>
-    <p class="description">{{ description }}</p>
-    <a :href="site">
-      <button>Site officiel</button>
-    </a>
-  </header>
+  <page-top-barre :or="totalOr" />
+  <page-header :titre="titre" :site="site" :description="description" />
   <main>
     <ul class="cartes">
       <li v-for="troupe in troupes" :key="troupe.id">
@@ -148,6 +144,3 @@ function formerTroupe(cout) {
   <footer>&copy; 2023 - <a :href="site">Supercell.com</a></footer>
 </template>
 
-<style scoped lang="sass">
-/* https://sass-lang.com/guide */
-</style>
