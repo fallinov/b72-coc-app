@@ -84,7 +84,7 @@ function formerTroupe(cout) {
 
 <template>
     <div class="solde-or">
-        <img src="img/piece-or-note.jpg" alt="Solde Or">
+        <img src="/img/piece-or-note.jpg" alt="Solde Or">
         {{ totalOr.toLocaleString('fr-CH') }}
         pièces d'or
     </div>
@@ -116,7 +116,7 @@ function formerTroupe(cout) {
                             :disabled="totalOr < troupe.cout"
                     >
                         Former
-                        <img src="img/piece-or.png" alt="Former">
+                        <img src="/img/piece-or.png" alt="Former">
                     </button>
 
                     <p class="description">
