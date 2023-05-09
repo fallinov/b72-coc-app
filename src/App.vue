@@ -2,6 +2,7 @@
 // Cheat Sheet: https://steve-fallet.notion.site/Vue-3-script-setup-Cheat-Sheet-b12192ceae244ecda65f771579ca02bc
 import {reactive, ref} from 'vue'
 
+/* Variables réactives */
 const titre = ref('Clash of Clans')
 const description = ref(`Construire un village,
                                 former un clan et participer à des guerres de
@@ -149,10 +150,7 @@ function formerTroupe(cout) {
         </ul>
     </main>
     <footer>
-        &copy; 2023 -
-        <a :href="site">
-            Supercell.com
-        </a>
+        &copy; 2023 - <a :href="site">Supercell.com</a>
     </footer>
 </template>
 
