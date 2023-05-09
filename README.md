@@ -1,6 +1,6 @@
 # Clash of Clans App
 Créer une application Vue à partir du site Clash of Clans (CoC) du contenu dans
-le dossier `_source` de ce dépôt.
+le dossier `_sources/` de ce dépôt.
 
 ## Etape 1
 Transformation de notre ancien site Clash of Clans (CoC) en application Vue.js
