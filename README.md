@@ -13,6 +13,10 @@ Configuration du projet Vue et intégration de l'ancien site CoC
       ```sh
       npm install -D sass
       ```
+   * Démarrer le serveur de développement
+      ```sh
+      npm run dev
+      ```
    * Supprimer le fichier `src/assets/base.css`
    * Remplacer le fichier `src/assets/main.css`
      par celui du site CoC `css/main.css`
