@@ -2,15 +2,24 @@
 Créer une application Vue à partir du site Clash of Clans (CoC) du contenu dans
 le dossier `_sources/` de ce dépôt.
 
-## Etape 1
-Transformation de notre ancien site Clash of Clans (CoC) en application Vue.js
-   a. Créer une nouvelle application Vue
-   b. Ajouter le paquet pour Sass et SCSS
-   i. Exécuter la commande suivante dans le terminal : npm install -D sass
-   c. Supprimer le fichier src/assets/base.css
-   d. Remplacer le contenu de src/assets/base.css par celui du site CoC
-   e. Modifier App.vue pour afficher la liste des cartes
-   Créer un composant CarteTroupe.vue
+## Étape 1
+Configuration du projet Vue et intégration de l'ancien site CoC
+
+   * Installer les paquets 
+      ```sh
+      npm install
+      ```
+   * Ajouter le paquet pour Sass et SCSS
+      ```sh
+      npm install -D sass
+      ```
+   * Supprimer le fichier `src/assets/base.css`
+   * Remplacer le fichier `src/assets/main.css`
+     par celui du site CoC `css/main.css`
+   * Copier le dossier `img/` du site CoC dans `public/`
+   * Copier le fichier `favicon.ico` du site CoC dans `public/`
+   * Modifier `App.vue` pour afficher la liste des cartes
+
 ## Commandes
 ### Installer les libraires
 ```sh
