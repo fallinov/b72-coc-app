@@ -1,5 +1,8 @@
 # Clash of Clans App
-Créer une application Vue à partir du site HTML/CSS Clash of Clans ci-après :
+Créer une application Vue.js à partir du site Clash of Clans (CoC) 
+contenu dans le dossier `_sources/` de ce dépôt.
+
+> [Instructions de l'étape 1.](Etape-1.md)
 
 ## Commandes
 ### Installer les libraires
