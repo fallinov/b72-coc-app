@@ -1,9 +1,11 @@
 <script setup>
 // Cheat Sheet: https://steve-fallet.notion.site/Vue-3-script-setup-Cheat-Sheet-b12192ceae244ecda65f771579ca02bc
-import {reactive, ref} from 'vue'
-import TopBarre from "@/components/PageTopBarre.vue";
-import PageHeader from "@/components/PageHeader.vue";
-import PageTopBarre from "@/components/PageTopBarre.vue";
+import { reactive, ref } from 'vue'
+// Importation des composants
+import PageTopBarre from '@/components/PageTopBarre.vue'
+import PageHeader from '@/components/PageHeader.vue'
+import PageFooter from '@/components/PageFooter.vue'
+import TroupeCarte from '@/components/TroupeCarte.vue'
 
 /* Variables réactives */
 const titre = ref('Clash of Clans')
@@ -95,52 +97,40 @@ function formerTroupe(cout) {
   <page-header :titre="titre" :site="site" :description="description" />
   <main>
     <ul class="cartes">
-      <li v-for="troupe in troupes" :key="troupe.id">
-        <article>
-          <header :style="`background: url('img/${troupe.imageFond}')`">
-            <img :src="'img/' + troupe.image" :alt="troupe.nom" />
-          </header>
-
-          <div class="level" :style="`color: ${troupe.couleur}`">Niveau {{ troupe.niveau }}</div>
-
-          <h2 class="name">{{ troupe.nom }}</h2>
-
-          <button
-            :style="`background-color: ${troupe.couleur}`"
-            @click="formerTroupe(troupe.cout)"
-            :disabled="totalOr < troupe.cout"
-          >
-            Former
-            <img src="/img/piece-or.png" alt="Former" />
-          </button>
-
-          <p class="description">
-            {{ troupe.description }}
-          </p>
-
-          <footer>
-            <div class="training" :style="`background-color: ${troupe.couleur}`">
-              <div v-if="troupe.formation > 60">
-                {{ Math.round(troupe.formation / 60) }}<sup>min </sup>
-              </div>
-              <div v-else>{{ troupe.formation }}<sup>sec</sup></div>
-              <div>Formation</div>
-            </div>
-
-            <div class="speed" :style="`background-color: ${troupe.couleur}`">
-              <div>{{ troupe.vitesse }}</div>
-              <div>Vitesse</div>
-            </div>
-
-            <div class="cost" :style="`background-color: ${troupe.couleur}`">
-              <div>{{ troupe.cout }}</div>
-              <div>Coût</div>
-            </div>
-          </footer>
-        </article>
+      <li v-for="trp in troupes" :key="trp.id">
+        <troupe-carte
+            :troupe="trp"
+            :or="totalOr"
+            @former="formerTroupe"
+        />
       </li>
     </ul>
   </main>
-  <footer>&copy; 2023 - <a :href="site">Supercell.com</a></footer>
+  <PageFooter :site="site" />
 </template>
 
+<style scoped>
+/*** Liste des cartes ***/
+ul.cartes {
+  list-style-type: none;
+  padding: 0;
+  margin: 2rem auto 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+/*** Une carte ***/
+ul.cartes li {
+  margin: 40px 40px 80px;
+  background: white;
+  width: 300px;
+  max-width: calc(100% - 80px);
+  border-radius: 19px;
+  position: relative;
+  text-align: center;
+  box-shadow: -1px 15px 30px -12px black;
+  z-index: 99;
+}
+</style>
