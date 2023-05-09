@@ -81,11 +81,11 @@ ul
 ## 4. Intégration du site CoC
 Intégrer dans `src/App.vue` les contenus des fichiers `index.html` et 
 `js/main.js` du site CoC.
-1. Copier le contenu de `<div id="app">` du fichier `index.html` du site CoC
+1. Commenter ou supprimer le contenu du `<style>` de `src/App.vue`
+2. Copier le contenu de `<div id="app">` du fichier `index.html` du site CoC
   dans le `<template>` de `src/App.vue`
 2. Copier et réécrire le contenu du fichier `js/main.js` du site CoC dans  
    `<script setup>` de `src/App.vue` en utilisant la composition API de Vue 3.
    [Vue 3 "script setup" Cheat Sheet](https://steve-fallet.notion.site/Vue-3-script-setup-Cheat-Sheet-b12192ceae244ecda65f771579ca02bc)
-
-
+![4-coc-integration.png](_medias%2F4-coc-integration.png)
 ---
