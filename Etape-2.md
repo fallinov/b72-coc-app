@@ -53,7 +53,7 @@ Ce passage de données via les _props_ est symbolisé par la flèche jaune dans 
     ```vue
     <page-top-barre :or="totalOr" />
     ```
-5. Importer le style CSS de `src/assets/main.css` qui concerne `.solde-or`
+5. Sortir le style CSS de `src/assets/main.css` qui concerne `.solde-or`
    dans `<style>` de `PageTopBarre.vue` et le réécrire en **Sass** ou en **SCSS**.
     ```vue
     <style scoped lang="sass">
@@ -75,6 +75,44 @@ Ce passage de données via les _props_ est symbolisé par la flèche jaune dans 
    
 ## Composant PageHeader
 Le composant `PageHeader.vue` remplacera la `<header>` de `App.vue`.
+Procéder de la même manière que pour `PageTopBarre.vue` :
+1. Créez le composant `src/components/PageHeader.vue`
+2. Ajouter l'élément HTML `<header>` du composant `src/App.vue` au `<template>` de `PageHeader.vue`.
+3. Créer les _props_ nécessaires pour passer les données `titre, description, site` de `App.vue` à `PageHeader.vue`.
+4. Ajouter le composant `PageHeader.vue` dans `App.vue` à la place de `<header>` 
+   et lui passer les données `titre, description, site` de `App.vue` via les _props_.
+5. Sortir le CSS de `src/assets/main.css` qui concerne `header` dans `<style>` de `PageHeader.vue` 
+   et le réécrire en **Sass** ou en **SCSS**.
+
+## Composant PageFooter
+Le composant `PageFooter.vue` remplacera la `<footer>` de `App.vue`.
+Procéder de la même manière que pour `PageTopBarre.vue` et `PageHeader.vue`.
+
+1. Créez le composant `src/components/PageFooter.vue`
+2. Ajouter l'élément HTML `<footer>` du composant `src/App.vue` au `<template>` de `PageFooter.vue`.
+3. Ajouter le composant `PageFooter.vue` dans `App.vue` à la place de `<footer>`.
+4. Sortir le CSS de `src/assets/main.css` qui concerne `footer` dans `<style>` de `PageFooter.vue` 
+   et le réécrire en **Sass** ou en **SCSS**.
+
+## Composant TroupeCarte
+Le composant `TroupeCarte.vue` remplacera les `<article>` de `App.vue`.
+Procéder de la même manière que pour `PageTopBarre.vue`, `PageHeader.vue` et `PageFooter.vue` :
+
+1. Créez le composant `src/components/TroupeCarte.vue`
+2. Ajouter l'élément HTML `<article>` du composant `src/App.vue` au `<template>` de `TroupeCarte.vue`.
+3. Créer les _props_ nécessaires pour passer les données `troupe` de `App.vue` à `TroupeCarte.vue`.
+4. Ajouter le composant `TroupeCarte.vue` dans `App.vue` à la place des `<article>` 
+   et lui passer les données `troupe` de `App.vue` via les _props_.
+5. Sortir le CSS de `src/assets/main.css` qui concerne `article` dans `<style>` de `TroupeCarte.vue` 
+   et le réécrire en **Sass** ou en **SCSS**.
+
+### Formation des troupes
+La méthode qui gère la formation des troupes `formerTroupe` est définie dans `App.vue`.
+Le composant `TroupeCarte.vue` doit pouvoir appeler cette méthode, mais ne peut pas le faire directement.
+Pour ce faire, il faudra utiliser les **événements**.
+1. Dans `TroupeCarte.vue`, définir un **événement** `former` qui sera émis lorsque l'utilisateur
+   cliquera sur le bouton `Recruter`.
+2. Dans `App.vue`, ajouter un **écouteur d'événement** `@formerTroupe` qui appellera la méthode `formerTroupe` de `App.vue`.
 
 
 
