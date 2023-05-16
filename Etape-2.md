@@ -21,12 +21,12 @@ Avant de commencer, vous pouvez supprimer les composants suivants :
 ## Composant PageTopBarre
 Le composant `PageTopBarre.vue` remplacera la `<div class="solde-or">` de `App.vue`.
 
-`PageTopBarre.vue` affiche le solde d'or `totalOr` déclarer dans le composant `App.vue`.
+`PageTopBarre.vue` affiche le solde d'or `totalOr` déclaré dans le composant `App.vue`.
 
 Pour passer `totalOr` de `App.vue` à `PageTopBarre.vue`, il faut :
 
-1. Définir une **propriété** dans`PageTobBarre.vue`.
-2. Passer `totalOr` de `App.vue` via la propriété définie.
+1. Définir une **propriété** `or` dans`PageTobBarre.vue`.
+2. Passer `totalOr` de `App.vue` à `PageTobBarre.vue` via la propriété `or` définie.
 
 Ce passage de données via les _props_ est symbolisé par la flèche jaune dans le diagramme ci-dessous.
 
@@ -50,11 +50,17 @@ Ce passage de données via les _props_ est symbolisé par la flèche jaune dans 
     ```
 4. Ajouter le composant `PageTopBarre.vue` dans `App.vue` à la place de `<div class="solde-or">` 
    et lui passer `totalOr` de `App.vue` via la propriété `or`.
+   
+    > Ne pas oublier de mettre `:` devant `or` pour indiquer que vous passez une instruction JavaScript, 
+      et non une valeur statique.
     ```vue
     <page-top-barre :or="totalOr" />
     ```
-5. Sortir le style CSS de `src/assets/main.css` qui concerne `.solde-or`
-   dans `<style>` de `PageTopBarre.vue` et le réécrire en **Sass** ou en **SCSS**.
+5. Couper le style CSS qui concerne `.solde-or` dans `src/assets/main.css` pour le coller
+   dans `<style>` de `PageTopBarre.vue`. 
+6. Réécrire le CSS ajouter dans `<style>` de `PageTopBarre.vue` en **Sass** ou en **SCSS**.
+   
+   Ci-après, le CSS réécrit en Sass :
     ```vue
     <style scoped lang="sass">
     .solde-or
@@ -100,7 +106,9 @@ Procéder de la même manière que pour `PageTopBarre.vue`, `PageHeader.vue` et 
 
 1. Créez le composant `src/components/TroupeCarte.vue`
 2. Ajouter l'élément HTML `<article>` du composant `src/App.vue` au `<template>` de `TroupeCarte.vue`.
-3. Créer les _props_ nécessaires pour passer les données `troupe` de `App.vue` à `TroupeCarte.vue`.
+3. Créer les _props_ `troupe` et `or` pour passer les données de la `troupe` à afficher
+   et `totalOr` de `App.vue` à `TroupeCarte.vue`.
+   > On passe `totalOr` pour activer ou désactiver le bouton `Recruter` de la carte.
 4. Ajouter le composant `TroupeCarte.vue` dans `App.vue` à la place des `<article>` 
    et lui passer les données `troupe` de `App.vue` via les _props_.
 5. Sortir le CSS de `src/assets/main.css` qui concerne `article` dans `<style>` de `TroupeCarte.vue` 
@@ -110,9 +118,31 @@ Procéder de la même manière que pour `PageTopBarre.vue`, `PageHeader.vue` et 
 La méthode qui gère la formation des troupes `formerTroupe` est définie dans `App.vue`.
 Le composant `TroupeCarte.vue` doit pouvoir appeler cette méthode, mais ne peut pas le faire directement.
 Pour ce faire, il faudra utiliser les **événements**.
-1. Dans `TroupeCarte.vue`, définir un **événement** `former` qui sera émis lorsque l'utilisateur
-   cliquera sur le bouton `Recruter`.
-2. Dans `App.vue`, ajouter un **écouteur d'événement** `@formerTroupe` qui appellera la méthode `formerTroupe` de `App.vue`.
+1. Dans `TroupeCarte.vue`
+   2. Définir un **événement** `former`
+      ```vue
+      const emit = defineEmits(["former"]);
+      ```
+   2. Créer une méthode `formerTroupe(cout)` qui émettra l'événement `former` 
+      avec le coût de la troupe en paramètre.
+      ```vue
+      const formerTroupe = (cout) => {
+          emit("former", cout);
+      };
+      ```
+3. Modifier l'**événement** `@click` du bouton `Former` pour qu'il appelle la méthode `formerTroupe`
+   et lui passe le coût de formation en paramètre.
+     ```vue
+     <button
+         :style="`background-color: ${troupe.couleur}`"
+         @click="formerTroupe(troupe.cout)"
+         :disabled="or < troupe.cout"
+     > 
+         Former
+         <img src="/img/piece-or.png" alt="Former" />
+    </button>
+     ```
+2. Dans `App.vue`, ajouter un **écouteur d'événement** `@former` qui appellera la méthode `formerTroupe` de `App.vue`.
 
 
 
