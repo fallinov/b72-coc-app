@@ -4,6 +4,7 @@ composants, afin d'en simplifier sa compréhension et sa maintenance.
 
 À la fin de cette étape votre application devrait ressembler à ceci :
 
+![decoupe-composants-1.PNG](_medias%2Fdecoupe-composants-1.PNG)
 
 * `src/App.vue` : composant racine de l'application qui fera appel aux 
   composants suivants :
@@ -30,7 +31,7 @@ Pour passer `totalOr` de `App.vue` à `PageTopBarre.vue`, il faut :
 
 Ce passage de données via les _props_ est symbolisé par la flèche jaune dans le diagramme ci-dessous.
 
-![6-coc-diagramme-pageTopBarre.png](_medias%2F6-coc-diagramme-pageTopBarre.png)
+![decoupe-composants-2.png](_medias%2Fdecoupe-composants-2.png)
 
 ### Instructions
 1. Créez le composant `src/components/PageTopBarre.vue`
@@ -101,6 +102,9 @@ Procéder de la même manière que pour `PageTopBarre.vue` et `PageHeader.vue`.
    et le réécrire en **Sass** ou en **SCSS**.
 
 ## Composant TroupeCarte
+
+![decoupe-composants-3.PNG](_medias%2Fdecoupe-composants-3.PNG)
+
 Le composant `TroupeCarte.vue` remplacera les `<article>` de `App.vue`.
 Procéder de la même manière que pour `PageTopBarre.vue`, `PageHeader.vue` et `PageFooter.vue` :
 
@@ -126,9 +130,15 @@ Procéder de la même manière que pour `PageTopBarre.vue`, `PageHeader.vue` et 
    et le réécrire en **Sass** ou en **SCSS**.
 
 ### Formation des troupes
+
 La méthode qui gère la formation des troupes `formerTroupe` est définie dans `App.vue`.
 Le composant `TroupeCarte.vue` doit pouvoir appeler cette méthode, mais ne peut pas le faire directement.
 Pour ce faire, il faudra utiliser les **événements**.
+
+![decoupe-composants-4.PNG](_medias%2Fdecoupe-composants-4.PNG)
+
+### Instructions
+
 1. Dans `TroupeCarte.vue`
    2. Définir un **événement** `former`
       ```vue
