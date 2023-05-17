@@ -46,7 +46,8 @@ Ce passage de données via les _props_ est symbolisé par la flèche jaune dans 
     })
     </script>
     ```
-4. Ajouter le composant `PageTopBarre.vue` dans `App.vue` à la place de `<div class="solde-or">` 
+4. Dans `PageTobBarre.vue`, remplacer `{{ totalOr }}` par `{{ or }}` pour afficher le solde d'or.
+5. Ajouter le composant `PageTopBarre.vue` dans `App.vue` à la place de `<div class="solde-or">` 
    et lui passer `totalOr` de `App.vue` via la propriété `or`.
    
     > Ne pas oublier de mettre `:` devant `or` pour indiquer que vous passez une instruction JavaScript, 
