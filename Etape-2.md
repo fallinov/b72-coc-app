@@ -135,7 +135,6 @@ Procéder de la même manière que pour `PageTopBarre.vue`, `PageHeader.vue` et 
         <troupe-carte
             :troupe="trp"
             :or="totalOr"
-            @former="formerTroupe"
         />
       </li>
    </ul>
