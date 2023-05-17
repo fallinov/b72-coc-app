@@ -16,12 +16,6 @@ composants, afin d'en simplifier sa compréhension et sa maintenance.
 ## Aperçu dans Vue DevTools des composants créés
 ![vue-dev-tools.PNG](_medias%2Fvue-dev-tools.PNG)
 
-## Suppression des composants inutiles
-Avant de commencer, vous pouvez supprimer les composants suivants :
-* `src/components/HelloWorld.vue`
-* `src/components/TheWelcome.vue`
-* `src/components/WelcomeItem.vue`
-
 ## Composant PageTopBarre
 Le composant `PageTopBarre.vue` remplacera la `<div class="solde-or">` de `App.vue`.
 
