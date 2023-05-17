@@ -6,12 +6,15 @@ composants, afin d'en simplifier sa compréhension et sa maintenance.
 
 ![decoupe-composants-1.PNG](_medias%2Fdecoupe-composants-1.PNG)
 
-* `src/App.vue` : composant racine de l'application qui fera appel aux 
+* `src/App.vue` : composant racine de l'application qui fera appel aux
   composants suivants :
-  * `src/components/PageTopBarre.vue` : composant pour la barre du solde d'or
-  * `src/components/PageHeader.vue` : composant pour l'en-tête de la page
-  * `src/components/PageFooter.vue` : composant pour le pied de page
-  * `src/components/TroupeCarte.vue` : composant pour une troupe
+   * `src/components/PageTopBarre.vue` : composant pour la barre du solde d'or
+   * `src/components/PageHeader.vue` : composant pour l'en-tête de la page
+   * `src/components/PageFooter.vue` : composant pour le pied de page
+   * `src/components/TroupeCarte.vue` : composant pour une troupe
+  
+## Aperçu dans Vue DevTools des composants créés
+![vue-dev-tools.PNG](_medias%2Fvue-dev-tools.PNG)
 
 ## Suppression des composants inutiles
 Avant de commencer, vous pouvez supprimer les composants suivants :
