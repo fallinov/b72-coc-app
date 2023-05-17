@@ -33,6 +33,13 @@ Ce passage de données via les _props_ est symbolisé par la flèche jaune dans 
 ### Instructions
 1. Créez le composant `src/components/PageTopBarre.vue`
 2. Ajouter l'élément HTML `<div class="solde-or">` du composant `src/App.vue` au `<template>` de `PageTopBarre.vue`.
+      ```vue
+   <div class="solde-or">
+       <img src="img/piece-or-note.jpg" alt="Solde Or">
+       {{ totalOr.toLocaleString('fr-CH') }}
+       pièces d'or
+   </div>
+   ```
 3. Pour que `App.vue` puisse passer `totalOr` à `PageTobBarre.vue`, définir une **propriété `or`**
    dans `PageTobBarre.vue`.
    La propriété `or` est **obligatoire** et doit être de **type `Number`**.
