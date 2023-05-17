@@ -108,9 +108,11 @@ Le composant `PageFooter.vue` remplacera la `<footer>` de `App.vue`.
 Procéder de la même manière que pour `PageTopBarre.vue` et `PageHeader.vue`.
 
 1. Créez le composant `src/components/PageFooter.vue`
-2. Ajouter l'élément HTML `<footer>` du composant `src/App.vue` au `<template>` de `PageFooter.vue`.
-3. Ajouter le composant `PageFooter.vue` dans `App.vue` à la place de `<footer>`.
-4. Couper le CSS qui concerne `footer` dans `src/assets/main.css`, le coller dans `<style>` de `PageFooter.vue` 
+2. Ajouter l'élément HTML `<footer>` du composant `src/App.vue` au `<template>` de `PageFooter.vue`. 
+3. Créer une _props_ `site` pour passer le lien vers le site CoC de `App.vue` à `PageHeader.vue`.
+4. Ajouter le composant `PageFooter.vue` dans `App.vue` à la place de `<footer>`
+   et lui passer le lien vers le site CoC de `App.vue` via la _props_ `site`.
+5. Couper le CSS qui concerne `footer` dans `src/assets/main.css`, le coller dans `<style>` de `PageFooter.vue` 
    et le réécrire en **Sass** ou en **SCSS**.
 
 ## Composant TroupeCarte
