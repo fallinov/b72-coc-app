@@ -32,7 +32,10 @@
         <ul class="cartes">
             <li v-for="troupe in troupes" :key="troupe.id">
                 <article>
-                    <header :style="`background: url('img/${ troupe.imageFond }')`">
+                    <header
+                            :style="`background: linear-gradient(60deg, rgb(36, 36, 36) 0%,
+                            ${troupe.couleur} 100%);`"
+                    >
                         <img :src="'img/' + troupe.image" :alt="troupe.nom"/>
                     </header>
 

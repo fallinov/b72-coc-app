@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-    background: url("../img/coc-background.jpg") no-repeat center center fixed;
+    background: url("../img/coc-bg-arbres-montagnes.png") no-repeat center center fixed;
     background-size: cover;
     font: 1rem "Lato", Arial, sans-serif;
     color: #9E9E9E;
@@ -163,7 +163,6 @@ ul.cartes li {
 
 /*** Entête ***/
 article header {
-    position: relative;
     height: 230px;
     padding: 0;
     margin-bottom: 35px;
@@ -173,10 +172,10 @@ article header {
 }
 
 article header img {
-    width: 400px;
-    position: absolute;
-    top: -65px;
-    left: -70px;
+    max-width: 400px;
+    max-height: 330px;
+    margin-top: -65px;
+    margin-left: -70px;
 }
 
 /*** Contenu ***/
