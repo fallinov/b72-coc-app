@@ -101,6 +101,10 @@ header {
     text-align: center;
 }
 
+header .logo {
+    max-height: 150px;
+}
+
 header h1,
 header .description {
     font-size: 3.25rem;
