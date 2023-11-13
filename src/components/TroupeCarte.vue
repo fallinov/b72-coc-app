@@ -18,8 +18,11 @@ function formerTroupe(cout) {
 
 <template>
   <article>
-    <header :style="`background: url('img/${troupe.imageFond}')`">
-      <img :src="'img/' + troupe.image" :alt="troupe.nom" />
+    <header
+        :style="`background: linear-gradient(60deg, rgb(36, 36, 36) 0%,
+         ${troupe.couleur} 100%);`"
+    >
+      <img :src="troupe.image" :alt="troupe.nom" />
     </header>
 
     <div class="level" :style="`color: ${troupe.couleur}`">Niveau {{ troupe.niveau }}</div>
@@ -64,7 +67,6 @@ function formerTroupe(cout) {
 <style scoped lang="css">
 /*** Entête ***/
 article header {
-  position: relative;
   height: 230px;
   padding: 0;
   margin-bottom: 35px;
@@ -74,10 +76,10 @@ article header {
 }
 
 article header img {
-  width: 400px;
-  position: absolute;
-  top: -65px;
-  left: -70px;
+  max-width: 400px;
+  max-height: 330px;
+  margin-top: -65px;
+  margin-left: -70px;
 }
 
 /*** Contenu ***/
